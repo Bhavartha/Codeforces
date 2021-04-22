@@ -1,3 +1,5 @@
+# O(n^2) approach
+
 for _ in range(int(input())):
 
   def solve():
@@ -21,3 +23,30 @@ for _ in range(int(input())):
 
   print(solve())
   
+#   ----------------------------------------------------------------------------------------------
+  
+  
+# O(n) approach
+
+for _ in range(int(input())):
+
+  def solve():
+    n = int(input())
+    arr = list(map(int,input().split()))
+    x=0
+    for i in range(n):
+      x^=arr[i]
+
+    if x==0: 
+      return "YES"
+
+    c,_x=0,0
+    for a in arr:
+      _x^=a
+      if x==_x:
+        _x=0
+        c+=1
+    
+    return "YES" if c>2 else "NO"
+
+  print(solve())
